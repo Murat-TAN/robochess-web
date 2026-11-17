@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tekirdağ Robotik Satranç Spor Kulübü | Robochess.org</title>
+  <meta name="description" content="Tekirdağ Robotik Satranç Spor Kulübü; çocuklarımızın satrançla analitik zekasını, robotik kodlama ve STEM atölyesiyle üretken mühendislik yeteneklerini geliştiren TSF tescilli resmi spor kulübüdür.">
+  <meta name="keywords" content="tekirdağ robotik satranç, tekirdağ satranç kulübü, tekirdağ çocuk satranç kursu, robotik kodlama tekirdağ, stem atölyesi, robochess, tsf lisanslı sporcu, satranç eğitimi">
+  <meta name="author" content="Tekirdağ Robotik Satranç Spor Kulübü">
+  <meta name="theme-color" content="#1d4ed8">
+  <link rel="canonical" href="https://www.robochess.org/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="tsf-logo.png">
+  <link rel="apple-touch-icon" href="tsf-logo.png">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.robochess.org/">
+  <meta property="og:site_name" content="Tekirdağ Robotik Satranç Spor Kulübü">
+  <meta property="og:title" content="Tekirdağ Robotik Satranç Spor Kulübü | Robochess.org">
+  <meta property="og:description" content="TSF tescilli spor kulübü; satranç stratejisi, robotik kodlama ve STEM atölyesi. 10 kişilik butik sınıflarda lisanslı sporcu yetiştiriyoruz.">
+  <meta property="og:image" content="robochess-logo.png">
+  <meta property="og:locale" content="tr_TR">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://www.robochess.org/">
+  <meta name="twitter:title" content="Tekirdağ Robotik Satranç Spor Kulübü | Robochess.org">
+  <meta name="twitter:description" content="TSF tescilli spor kulübü; satranç stratejisi, robotik kodlama ve STEM atölyesi. 10 kişilik butik sınıflarda lisanslı sporcu yetiştiriyoruz.">
+  <meta name="twitter:image" content="robochess-logo.png">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    "name": "Tekirdağ Robotik Satranç Spor Kulübü",
+    "alternateName": "Robochess",
+    "url": "https://www.robochess.org",
+    "logo": "https://www.robochess.org/robochess-logo.png",
+    "image": "https://www.robochess.org/robochess-logo.png",
+    "description": "Tekirdağ Robotik Satranç Spor Kulübü; çocuklarımızın satrançla analitik zekasını, robotik kodlama ve STEM atölyesiyle üretken mühendislik yeteneklerini geliştiren TSF tescilli resmi spor kulübüdür.",
+    "telephone": "+90-541-715-95-66",
+    "email": "robo_chess@robochess.org",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Hürriyet Mahallesi, Tepebaşı Caddesi, STEM Atölyesi",
+      "addressLocality": "Tekirdağ",
+      "addressRegion": "Tekirdağ",
+      "addressCountry": "TR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Friday"],
+        "opens": "18:30",
+        "closes": "20:00"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              blue: '#1d4ed8',
+              navy: '#0f172a',
+              orange: '#ea580c',
+              amber: '#f59e0b',
+              emerald: '#10b981'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Özel Satranç Atı (Knight) Fare İmleci */
+    html {
+      scroll-behavior: smooth;
+    }
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
+      cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20d%3D%27M23%2027%20H7%20C7%2025%208.5%2024%209.5%2023%20C7%2022%206%2020%205%2018%20L2%2014%20L6%2013%20C5%2011%205.5%208%207.5%205%20L11%202%20L13%206%20C15%207%2017%209%2018%2011%20C20%2014%2020%2018%2018%2022%20C20%2023%2022%2024%2023%2027%20Z%27%20fill%3D%27%23000000%27%20opacity%3D%270.3%27%20transform%3D%27translate%281%2C%201.5%29%27/%3E%3Cpath%20d%3D%27M23%2027%20H7%20C7%2025%208.5%2024%209.5%2023%20C7%2022%206%2020%205%2018%20L2%2014%20L6%2013%20C5%2011%205.5%208%207.5%205%20L11%202%20L13%206%20C15%207%2017%209%2018%2011%20C20%2014%2020%2018%2018%2022%20C20%2023%2022%2024%2023%2027%20Z%27%20fill%3D%27%231d4ed8%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%278.5%27%20cy%3D%279%27%20r%3D%271.3%27%20fill%3D%27%23ffffff%27/%3E%3Cpath%20d%3D%27M8%2015%20L12%2017%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%271.2%27%20stroke-linecap%3D%27round%27/%3E%3C/svg%3E") 2 2, auto;
+    }
+
+    /* Tıklanabilir elementlerde Canlı Turuncu Satranç Atı */
+    a, button, [role="button"], input, select, textarea, .cursor-pointer {
+      cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20d%3D%27M23%2027%20H7%20C7%2025%208.5%2024%209.5%2023%20C7%2022%206%2020%205%2018%20L2%2014%20L6%2013%20C5%2011%205.5%208%207.5%205%20L11%202%20L13%206%20C15%207%2017%209%2018%2011%20C20%2014%2020%2018%2018%2022%20C20%2023%2022%2024%2023%2027%20Z%27%20fill%3D%27%23000000%27%20opacity%3D%270.3%27%20transform%3D%27translate%281%2C%201.5%29%27/%3E%3Cpath%20d%3D%27M23%2027%20H7%20C7%2025%208.5%2024%209.5%2023%20C7%2022%206%2020%205%2018%20L2%2014%20L6%2013%20C5%2011%205.5%208%207.5%205%20L11%202%20L13%206%20C15%207%2017%209%2018%2011%20C20%2014%2020%2018%2018%2022%20C20%2023%2022%2024%2023%2027%20Z%27%20fill%3D%27%23ea580c%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27/%3E%3Ccircle%20cx%3D%278.5%27%20cy%3D%279%27%20r%3D%271.3%27%20fill%3D%27%23ffffff%27/%3E%3Cpath%20d%3D%27M8%2015%20L12%2017%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%271.2%27%20stroke-linecap%3D%27round%27/%3E%3C/svg%3E") 2 2, pointer;
+    }
+
+    /* Satranç Tahtası Dokulu Hafif Arka Plan */
+    .chess-board-pattern {
+      background-color: #ffffff;
+      background-image: 
+        linear-gradient(45deg, rgba(219, 234, 254, 0.45) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(219, 234, 254, 0.45) 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, rgba(219, 234, 254, 0.45) 75%), 
+        linear-gradient(-45deg, transparent 75%, rgba(219, 234, 254, 0.45) 75%);
+      background-size: 60px 60px;
+      background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+    }
+    
+    .chess-subtle-bg {
+      background-color: #f8fafc;
+      background-image: 
+        linear-gradient(45deg, rgba(226, 232, 240, 0.5) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(226, 232, 240, 0.5) 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, rgba(226, 232, 240, 0.5) 75%), 
+        linear-gradient(-45deg, transparent 75%, rgba(226, 232, 240, 0.5) 75%);
+      background-size: 40px 40px;
+      background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    }
+
+    .text-gradient-blue {
+      background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card-shadow {
+      box-shadow: 0 10px 30px -5px rgba(29, 78, 216, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 20px 35px -8px rgba(29, 78, 216, 0.16), 0 8px 12px -3px rgba(0, 0, 0, 0.06);
+      transform: translateY(-5px);
+    }
+    
+    /* Smooth CSS Animations */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(8px) rotate(-1deg); }
+    }
+    @keyframes pulseSoft {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.03); }
+    }
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-float {
+      animation: floatSlow 5s ease-in-out infinite;
+    }
+    .animate-float-reverse {
+      animation: floatReverse 6s ease-in-out infinite;
+    }
+    .animate-pulse-soft {
+      animation: pulseSoft 3s ease-in-out infinite;
+    }
+    .animate-spin-slow {
+      animation: spinSlow 30s linear infinite;
+    }
+
+    /* Kesintisiz ve Dikey Kesilmeyen Kayan Yazı Animasyonu */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: inline-flex;
+      white-space: nowrap;
+      align-items: center;
+      line-height: 1.6;
+      animation: marquee 35s linear infinite;
+      will-change: transform;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans selection:bg-blue-600 selection:text-white antialiased min-h-screen flex flex-col">
+
+  <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-600 text-white text-xs sm:text-sm py-3 px-4 shadow-md relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
+      
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-amber-400 text-slate-950 shadow-sm animate-pulse">
+          ⚡ YENİ DÖNEM
+        </span>
+        <span class="font-medium text-blue-50">
+          Robotik Satranç & STEM Atölyesi Eğitimlerimiz Başladı! <strong class="text-white underline decoration-amber-400 decoration-2">Kontenjanlar 10 kişiyle sınırlıdır.</strong>
+        </span>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs font-semibold">
+        <a href="tel:05417159566" class="hidden sm:flex items-center gap-1.5 text-white hover:text-amber-300 transition-colors">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-amber-300"></i> 0541 715 95 66
+        </a>
+        <a href="#kayit" class="bg-white/20 hover:bg-white text-white hover:text-blue-700 px-3 py-1 rounded-md transition-all font-bold">
+          Hemen Kayıt Ol →
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 sm:gap-4 group py-1">
+          <img src="robochess-logo.png" alt="Tekirdağ Robotik Satranç Spor Kulübü" class="h-11 sm:h-13 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+          <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+          <div class="hidden sm:flex items-center gap-2 bg-slate-50 border border-slate-200/90 px-2.5 py-1 rounded-xl shadow-xs" title="Türkiye Satranç Federasyonu Tescilli Kulüp">
+            <img src="tsf-logo.png" alt="Türkiye Satranç Federasyonu Logo" class="w-7 h-7 sm:w-8 sm:h-8 object-contain">
+            <div class="text-[9px] sm:text-[10px] leading-tight font-extrabold text-slate-800 text-left">
+              <span class="text-blue-700 block">TSF TESCİLLİ</span>
+              <span class="text-slate-500 font-semibold text-[8px] sm:text-[9px]">Spor Kulübü</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-7 text-sm font-bold text-slate-700">
+          <a href="#egitimler" class="hover:text-blue-600 transition-colors py-2">Eğitimlerimiz</a>
+          <a href="#galeri" class="hover:text-blue-600 transition-colors py-2">Galeri & Atölye</a>
+          <a href="#neden-biz" class="hover:text-blue-600 transition-colors py-2">Neden Robochess?</a>
+          <a href="#bulmaca" class="hover:text-blue-600 transition-colors py-2">Günün Hamlesi</a>
+          <a href="#etkinlikler" class="hover:text-blue-600 transition-colors py-2">Ders Saatleri</a>
+          <a href="#hakkimizda" class="hover:text-blue-600 transition-colors py-2">Hakkımızda</a>
+          <a href="#iletisim" class="hover:text-blue-600 transition-colors py-2">İletişim</a>
+        </div>
+
+        <!-- Right Action Buttons -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="https://wa.me/905417159566" target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+            <span>WhatsApp Bilgi</span>
+          </a>
+          <a href="#kayit" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold text-white bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 shadow-md shadow-orange-500/25 transition-all duration-300 hover:scale-105">
+            Hemen Başvur
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none">
+          <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl">
+      <a href="#egitimler" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600 mobile-link">Eğitimlerimiz</a>
+      <a href="#galeri" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600 mobile-link">Galeri & Atölye</a>
+      <a href="#neden-biz" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600 mobile-link">Neden Robochess?</a>
+      <a href="#bulmaca" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600 mobile-link">Günün Hamlesi (Bulmaca)</a>
+      <a href="#etkinlikler" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600 mobile-link">Ders Saatleri & Günler</a>
+      <a href="#hakkimizda" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600 mobile-link">Hakkımızda</a>
+      <a href="#iletisim" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600 mobile-link">İletişim</a>
+      <div class="pt-3 border-t border-slate-100 space-y-2">
+        <a href="tel:05417159566" class="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold bg-blue-50 text-blue-700">
+          <i data-lucide="phone" class="w-4 h-4 text-blue-600"></i> 0541 715 95 66
+        </a>
+        <a href="#kayit" class="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-extrabold text-white bg-gradient-to-r from-orange-500 to-amber-500 mobile-link shadow-md">
+          Eğitim Ön Başvurusu Yap
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION (SATRANÇ ARKA PLANLI) ================= -->
+  <section class="relative pt-8 pb-16 sm:pt-14 sm:pb-24 chess-board-pattern z-10">
+    
+    <!-- Gerçek Satranç Tahtası ve Taşları Arka Plan Katmanı (Subtle Watermark) -->
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-[0.06] pointer-events-none mix-blend-multiply"></div>
+    
+    <!-- Yarı Saydam Uçuşan Dev Satranç Taşları Filigranı (Su Damgası Şıklığı) -->
+    <div class="absolute -left-10 top-12 text-blue-900/10 text-[140px] sm:text-[200px] font-serif select-none pointer-events-none transform -rotate-12 animate-float">
+      ♞
+    </div>
+    <div class="absolute right-4 top-1/4 text-blue-900/10 text-[130px] sm:text-[180px] font-serif select-none pointer-events-none transform rotate-12 animate-float-reverse">
+      ♚
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-6 text-center lg:text-left space-y-5">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/95 border border-blue-200 text-blue-800 shadow-sm animate-pulse-soft backdrop-blur-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>2026 Yeni Dönem Kayıtları Başladı!</span>
+          </div>
+
+          <!-- Ana Başlık (Ferah, Geniş Satır Aralıklı, Kesintisiz) -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black font-display tracking-tight text-slate-900 leading-snug sm:leading-tight">
+            Zihnin Stratejisi, <br>
+            <span class="text-gradient-blue inline-block pb-1">Robotik Kodlama</span> ile Buluşuyor!
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            <strong>Tekirdağ Robotik Satranç Spor Kulübü</strong>; çocuklarımızın satrançla analitik zekasını, robotik kodlama ve STEM atölyesiyle üretken mühendislik yeteneklerini geliştiren TSF tescilli resmi spor kulübüdür.
+          </p>
+
+          <!-- Core Value Badges -->
+          <div class="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs font-bold">
+            <span class="flex items-center gap-1.5 bg-white border border-blue-100 text-blue-900 px-3 py-1.5 rounded-xl shadow-sm hover:scale-105 transition-transform">
+              <i data-lucide="users" class="w-4 h-4 text-blue-600"></i> Max 10 Kişilik Gruplar
+            </span>
+            <span class="flex items-center gap-1.5 bg-white border border-emerald-100 text-emerald-900 px-3 py-1.5 rounded-xl shadow-sm hover:scale-105 transition-transform">
+              <i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i> Ayda 8 Saat Yoğun Eğitim
+            </span>
+            <span class="flex items-center gap-1.5 bg-white border border-amber-100 text-amber-900 px-3 py-1.5 rounded-xl shadow-sm hover:scale-105 transition-transform">
+              <i data-lucide="map-pin" class="w-4 h-4 text-amber-600"></i> Tepebaşı Cad. STEM Atölyesi
+            </span>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+            <a href="#kayit" class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-black text-white bg-gradient-to-r from-orange-500 via-amber-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 shadow-lg shadow-orange-500/25 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base">
+              <i data-lucide="edit-3" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+              Eğitim Ön Başvurusu Yap
+            </a>
+            <a href="https://wa.me/905417159566?text=Merhaba,%20Robotik%20Satranç%20eğitimleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-slate-800 bg-white border-2 border-emerald-500 hover:bg-emerald-50 transition-all flex items-center justify-center gap-2 shadow-sm text-sm sm:text-base">
+              <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600"></i>
+              WhatsApp ile Bilgi Al
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual (İç içe taşmayan, tam sığan estetik görsel kolaj) -->
+        <div class="lg:col-span-6 relative pb-6 sm:pb-8">
+          
+          <div class="relative mx-auto max-w-md sm:max-w-lg">
+            
+            <!-- Ana Büyük Resim -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white card-shadow">
+              <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=800&q=80" alt="Satranç Dersi Odaklanma" class="w-full h-72 sm:h-80 object-cover hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-5">
+                <div>
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-blue-600 text-white uppercase tracking-wider">
+                    ODAKLANMA & STRATEJİ
+                  </span>
+                  <h3 class="text-white font-extrabold text-base sm:text-lg mt-1">Geleceğin Büyük Ustaları Yetişiyor</h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- İkinci Küçük Fotoğraf (Taşmadan, güvenli alt konumda) -->
+            <div class="absolute -bottom-4 right-2 sm:right-4 w-44 sm:w-52 rounded-2xl overflow-hidden shadow-2xl border-4 border-white animate-float hidden sm:block z-10">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Robotik Kodlama Atölyesi" class="w-full h-28 sm:h-32 object-cover">
+              <div class="absolute bottom-1.5 left-1.5 bg-slate-900/90 text-white px-2 py-0.5 rounded text-[9px] font-bold">
+                🤖 Uygulamalı STEM
+              </div>
+            </div>
+
+            <!-- Sol Üst Rozet (TSF Tescilli Kulüp) -->
+            <div class="absolute -top-4 -left-3 sm:-left-5 bg-white border border-slate-200 p-2 sm:p-2.5 rounded-2xl shadow-xl animate-float-reverse flex items-center gap-3 z-10">
+              <img src="tsf-logo.png" alt="Türkiye Satranç Federasyonu Logo" class="w-10 h-10 sm:w-11 sm:h-11 object-contain shrink-0 drop-shadow-sm">
+              <div class="text-xs text-left">
+                <div class="font-black text-slate-900 flex items-center gap-1.5">
+                  TSF Tescilli Kulüp
+                  <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                </div>
+                <div class="text-slate-500 font-semibold text-[10px]">Lisanslı Sporcu Eğitimi</div>
+              </div>
+            </div>
+
+            <!-- Sağ Üst Rozet -->
+            <div class="absolute top-3 -right-3 bg-white border border-slate-200 px-3 py-1.5 rounded-xl shadow-lg flex items-center gap-2 z-10">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              <span class="text-xs font-black text-slate-800">10 Kişilik Sınıflar</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HAREKETLİ KAYAN YAZI (TICKER) ================= -->
+  <div class="bg-blue-600 text-white py-3.5 overflow-hidden font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-md select-none border-y-2 border-blue-400 relative z-30 flex items-center min-h-[58px]">
+    <div class="marquee-track flex items-center gap-6 py-1">
+      <span class="inline-flex items-center gap-2 shrink-0">♟️ Taktik & Strateji Satrancı</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">🤖 Robotik Kodlama & STEM Atölyesi</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">⚡ Akıllı Satranç Tahtaları & Yapay Zeka</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">🏆 TSF Resmi Sporcu Lisansı</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">👥 10 Kişilik Butik Sınıflar</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">📍 Tekirdağ / Süleymanpaşa — Hürriyet Mah. STEM Atölyesi</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">♟️ Taktik & Strateji Satrancı</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">🤖 Robotik Kodlama & STEM Atölyesi</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">⚡ Akıllı Satranç Tahtaları & Yapay Zeka</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">🏆 TSF Resmi Sporcu Lisansı</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">👥 10 Kişilik Butik Sınıflar</span>
+      <span class="shrink-0 text-blue-300">•</span>
+      <span class="inline-flex items-center gap-2 shrink-0">📍 Tekirdağ / Süleymanpaşa — Hürriyet Mah. STEM Atölyesi</span>
+    </div>
+  </div>
+
+  <!-- ================= HIGHLIGHT STATS (CANLI RENKLİ VE SATRANÇ MOTİFLİ) ================= -->
+  <section class="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 text-white py-12 shadow-inner relative overflow-hidden">
+    <!-- Arka plan satranç deseni -->
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&w=1920&q=80')] bg-cover opacity-10 mix-blend-overlay pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-white/20">
+        
+        <div class="space-y-1">
+          <div class="text-3xl sm:text-5xl font-black font-display text-amber-300">10 Kişi</div>
+          <div class="text-xs sm:text-sm text-blue-100 font-bold uppercase tracking-wider">Butik Sınıf Mevcudu</div>
+        </div>
+
+        <div class="space-y-1">
+          <div class="text-3xl sm:text-5xl font-black font-display text-white">8 Saat</div>
+          <div class="text-xs sm:text-sm text-blue-100 font-bold uppercase tracking-wider">Aylık Yoğun Program</div>
+        </div>
+
+        <div class="space-y-1">
+          <div class="text-3xl sm:text-5xl font-black font-display text-emerald-300">%100</div>
+          <div class="text-xs sm:text-sm text-blue-100 font-bold uppercase tracking-wider">Uygulamalı STEM Atölyesi</div>
+        </div>
+
+        <div class="space-y-1">
+          <div class="text-3xl sm:text-5xl font-black font-display text-amber-300">Lisans</div>
+          <div class="text-xs sm:text-sm text-blue-100 font-bold uppercase tracking-wider">Resmi Sporcu Gelişimi</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EĞİTİMLERİMİZ (PROGRAMS - FOTOĞRAFLI KARTLAR) ================= -->
+  <section id="egitimler" class="scroll-mt-28 py-20 md:py-28 bg-white relative overflow-hidden">
+    
+    <!-- Arka plan güvenli filigran kutusu (Başlığı asla kapatmaz) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none -z-0 opacity-40">
+      <div class="absolute -right-10 bottom-10 text-slate-200 text-[200px] font-serif select-none">♜</div>
+      <div class="absolute -left-10 bottom-20 text-slate-200 text-[180px] font-serif select-none">♝</div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="inline-block text-xs font-black uppercase tracking-wider text-blue-700 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200">
+          Eğitim Müfredatımız
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900 tracking-tight leading-normal py-1">
+          Kulübümüzün Özel Eğitim Modülleri
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          Klasik satranç eğitimi ile çağımızın gereği olan robotik kodlama ve STEM yaklaşımını birleştiren bütünsel öğrenme modeli sunuyoruz.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Program 1: Satranç -->
+        <div class="bg-white rounded-3xl overflow-hidden border-2 border-slate-100 card-shadow card-shadow-hover transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&w=600&q=80" alt="Satranç Eğitimi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute top-3 left-3 bg-blue-600 text-white font-black text-xs px-3 py-1 rounded-lg shadow">
+                ♟️ SATRANÇ
+              </div>
+            </div>
+            <div class="p-7">
+              <h3 class="text-xl font-bold font-display text-slate-900 mb-3">Taktik ve Stratejik Satranç</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                Başlangıç, orta ve ileri seviye gruplarda taşların gücü, açılış teorileri, taktik motifler ve maç analizleri.
+              </p>
+              <ul class="space-y-3 text-xs sm:text-sm text-slate-700 mb-2 font-medium">
+                <li class="flex items-center gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 shrink-0"></i> Açılış prensipleri & kombinezonlar
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 shrink-0"></i> Saatli maç pratiği & turnuva psikolojisi
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 shrink-0"></i> UKD ve ELO puanı hedefli gelişim
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-7 pt-0 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Her Yaş Grubu</span>
+            <a href="#kayit" class="text-sm font-extrabold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+              Başvur <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Program 2: Robotik & STEM -->
+        <div class="bg-white rounded-3xl overflow-hidden border-2 border-blue-500 card-shadow card-shadow-hover transition-all duration-300 flex flex-col justify-between relative group">
+          <div class="absolute top-3 right-3 z-10 px-3 py-1 rounded-full text-xs font-black bg-gradient-to-r from-orange-500 to-amber-500 text-white uppercase tracking-wider shadow-md">
+            EN ÇOK TERCİH EDİLEN
+          </div>
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="Robotik Kodlama Atölyesi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute top-3 left-3 bg-cyan-600 text-white font-black text-xs px-3 py-1 rounded-lg shadow">
+                🤖 KODLAMA & STEM
+              </div>
+            </div>
+            <div class="p-7">
+              <h3 class="text-xl font-bold font-display text-slate-900 mb-3">Robotik Kodlama & STEM Atölyesi</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                Elektronik devreler, sensörler, blok ve metin tabanlı programlama ile çocukların kendi robotik projelerini üretmelerini sağlıyoruz.
+              </p>
+              <ul class="space-y-3 text-xs sm:text-sm text-slate-700 mb-2 font-medium">
+                <li class="flex items-center gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-600 shrink-0"></i> Algoritmik düşünce ve mantık geliştirme
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-600 shrink-0"></i> Mekanik tasarım & 3D modelleme
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-600 shrink-0"></i> Problem çözme & takım çalışması
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-7 pt-0 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-cyan-800 bg-cyan-50 px-3 py-1 rounded-full">Tepebaşı Atölyesi</span>
+            <a href="#kayit" class="text-sm font-extrabold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+              Başvur <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Program 3: Hibrit Robotik Satranç -->
+        <div class="bg-white rounded-3xl overflow-hidden border-2 border-slate-100 card-shadow card-shadow-hover transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80" alt="Yapay Zeka ve Robotik" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute top-3 left-3 bg-purple-600 text-white font-black text-xs px-3 py-1 rounded-lg shadow">
+                ⚡ HİBRİT MODEL
+              </div>
+            </div>
+            <div class="p-7">
+              <h3 class="text-xl font-bold font-display text-slate-900 mb-3">Hibrit: Robotik Satranç & AI</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                Satrancın stratejisini robot kol, motorize tahtalar ve yapay zeka hamle motorları ile birleştiren Türkiye'deki öncü eğitim modeli.
+              </p>
+              <ul class="space-y-3 text-xs sm:text-sm text-slate-700 mb-2 font-medium">
+                <li class="flex items-center gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-600 shrink-0"></i> Yapay zeka motorlarıyla maç analizi
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-600 shrink-0"></i> Akıllı satranç tahtası prototipleme
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-600 shrink-0"></i> Ulusal ve uluslararası proje yarışmaları
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-7 pt-0 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-purple-800 bg-purple-50 px-3 py-1 rounded-full">İleri Seviye</span>
+            <a href="#kayit" class="text-sm font-extrabold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+              Başvur <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOTOĞRAF GALERİSİ ================= -->
+  <section id="galeri" class="scroll-mt-28 py-20 chess-subtle-bg border-y border-slate-200 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
+        <span class="text-xs font-black uppercase tracking-wider text-blue-700 px-4 py-1.5 rounded-full bg-blue-100">
+          Kulüp Hayatımız
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900 tracking-tight">
+          Atölyemizden ve Turnuvalardan Kareler
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base">
+          Öğrencilerimizin satranç tahtası başında kurduğu stratejiler ve STEM atölyesinde geliştirdiği projelerden anlar.
+        </p>
+      </div>
+
+      <!-- Gallery Grid with Lightbox Support -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="group relative rounded-3xl overflow-hidden card-shadow cursor-pointer bg-white border-2 border-white" onclick="openLightbox('https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=1200&q=80', 'Saatli Satranç Turnuvası Pratiği')">
+          <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=600&q=80" alt="Saatli Satranç Turnuvası" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div>
+              <span class="text-amber-300 text-xs font-extrabold uppercase">Turnuva Hazırlığı</span>
+              <h4 class="text-white font-bold text-base">Saatli Maç ve Strateji Analizi</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative rounded-3xl overflow-hidden card-shadow cursor-pointer bg-white border-2 border-white" onclick="openLightbox('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80', 'Robotik Kodlama ve Devre Tasarımı')">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Robotik Kodlama" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div>
+              <span class="text-cyan-300 text-xs font-extrabold uppercase">STEM Atölyesi</span>
+              <h4 class="text-white font-bold text-base">Sensörler ve Devre Kartı Projeleri</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative rounded-3xl overflow-hidden card-shadow cursor-pointer bg-white border-2 border-white" onclick="openLightbox('https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80', 'Küçük Yaş Grupları Robotik Başlangıcı')">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="Robotik Başlangıç" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div>
+              <span class="text-emerald-300 text-xs font-extrabold uppercase">Eğlenceli Kodlama</span>
+              <h4 class="text-white font-bold text-base">Blok Tabanlı Algoritma Eğitimi</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative rounded-3xl overflow-hidden card-shadow cursor-pointer bg-white border-2 border-white" onclick="openLightbox('https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&w=1200&q=80', 'Taktik Motifler ve Taş Hareketleri')">
+          <img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&w=600&q=80" alt="Taktik Motifler" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div>
+              <span class="text-blue-300 text-xs font-extrabold uppercase">Satranç Sanatı</span>
+              <h4 class="text-white font-bold text-base">Büyük Usta Oyunları İncelemesi</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative rounded-3xl overflow-hidden card-shadow cursor-pointer bg-white border-2 border-white" onclick="openLightbox('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80', 'Akıllı ve Otonom Sistemler')">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80" alt="Otonom Sistemler" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div>
+              <span class="text-purple-300 text-xs font-extrabold uppercase">Yapay Zeka Laboratuvarı</span>
+              <h4 class="text-white font-bold text-base">Robotik Kol ile Otomatik Hamle</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative rounded-3xl overflow-hidden card-shadow cursor-pointer bg-white border-2 border-white" onclick="openLightbox('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=80', 'Turnuva Başarıları ve Madalyalar')">
+          <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=600&q=80" alt="Turnuva Başarıları" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div>
+              <span class="text-amber-300 text-xs font-extrabold uppercase">Kupa ve Madalyalar</span>
+              <h4 class="text-white font-bold text-base">Kulüp Sporcularımızın Gurur Tablosu</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= NEDEN BİZ? ================= -->
+  <section id="neden-biz" class="scroll-mt-28 py-20 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-black uppercase tracking-wider text-blue-700 px-4 py-1.5 rounded-full bg-blue-100">
+          Ayrıcalıklarımız
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900 tracking-tight">
+          Neden Robotik Satranç Spor Kulübü?
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base">
+          Çocuklarımızın hem zihinsel konsantrasyonunu artırıyor hem de onları teknoloji tüketicisi olmaktan çıkarıp teknoloji üreticisi yapıyoruz.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200 card-shadow hover:border-blue-300 card-shadow-hover transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center mb-5 animate-pulse-soft">
+            <i data-lucide="brain" class="w-7 h-7"></i>
+          </div>
+          <h4 class="font-extrabold text-slate-900 text-lg mb-2">Çift Yönlü Zihin Gelişimi</h4>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Satranç sabır, öngörü ve taktik kazandırırken; robotik kodlama yaratıcılık ve analitik mühendislik becerisi aşılar.
+          </p>
+        </div>
+
+        <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200 card-shadow hover:border-cyan-300 card-shadow-hover transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center mb-5 animate-pulse-soft">
+            <i data-lucide="sparkles" class="w-7 h-7"></i>
+          </div>
+          <h4 class="font-extrabold text-slate-900 text-lg mb-2">10 Kişilik Butik Sınıflar</h4>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Kalabalık sınıf ortamlarından uzak, her öğrencinin hamlesini ve projesini birebir takip eden özel eğitmen kadrosu.
+          </p>
+        </div>
+
+        <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200 card-shadow hover:border-amber-300 card-shadow-hover transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-white border border-slate-200/90 p-2 flex items-center justify-center mb-5 animate-pulse-soft shadow-sm">
+            <img src="tsf-logo.png" alt="Türkiye Satranç Federasyonu" class="w-full h-full object-contain">
+          </div>
+          <h4 class="font-extrabold text-slate-900 text-lg mb-2">TSF Lisanslı Sporcu İmkânı</h4>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Spor kulübümüz bünyesinde Türkiye Satranç Federasyonu (TSF) resmi sporcu lisansı çıkarma ve ulusal turnuvalarda kulübümüz adına yarışma fırsatı.
+          </p>
+        </div>
+
+        <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200 card-shadow hover:border-emerald-300 card-shadow-hover transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-5 animate-pulse-soft">
+            <i data-lucide="hammer" class="w-7 h-7"></i>
+          </div>
+          <h4 class="font-extrabold text-slate-900 text-lg mb-2">Tam Donanımlı Atölye</h4>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Hürriyet Mahallesi Tepebaşı Caddesi'ndeki ferah, güvenli ve modern STEM atölyemizde birebir pratik ortamı.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= İNTERAKTİF BÖLÜM: GÜNÜN HAMLESİ ================= -->
+  <section id="bulmaca" class="scroll-mt-28 py-20 chess-subtle-bg border-t border-slate-200 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center mb-10 space-y-3">
+        <span class="text-xs font-black uppercase tracking-wider text-blue-700 px-4 py-1.5 rounded-full bg-blue-100">
+          İnteraktif Zeka Alanı
+        </span>
+        <h2 class="text-3xl font-black font-display text-slate-900">Günün Satranç Taktik Bulmacası</h2>
+        <p class="text-slate-600 text-sm">
+          Aşağıdaki pozisyonda Beyaz oynar ve 1 hamlede mat yapar! Doğru hamleyi bulabilir misiniz?
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-50 via-white to-indigo-50/50 rounded-3xl p-6 sm:p-10 border-2 border-blue-100 card-shadow">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+          <!-- Mini Chess Board Visualization -->
+          <div class="flex flex-col items-center">
+            <div class="w-64 h-64 sm:w-72 sm:h-72 border-4 border-amber-900/40 rounded-2xl overflow-hidden shadow-xl grid grid-cols-4 grid-rows-4 text-3xl font-bold select-none bg-amber-50">
+              <!-- Row 1 -->
+              <div class="bg-amber-100 text-slate-900 flex items-center justify-center">♚</div>
+              <div class="bg-amber-700 text-amber-100 flex items-center justify-center"></div>
+              <div class="bg-amber-100 text-slate-900 flex items-center justify-center"></div>
+              <div class="bg-amber-700 text-amber-100 flex items-center justify-center">♜</div>
+              <!-- Row 2 -->
+              <div class="bg-amber-700 text-amber-100 flex items-center justify-center">♟</div>
+              <div class="bg-amber-100 text-slate-900 flex items-center justify-center">♟</div>
+              <div class="bg-amber-700 text-amber-100 flex items-center justify-center"></div>
+              <div class="bg-amber-100 text-slate-900 flex items-center justify-center">♟</div>
+              <!-- Row 3 -->
+              <div class="bg-amber-100 text-slate-900 flex items-center justify-center"></div>
+              <div class="bg-amber-700 text-amber-100 flex items-center justify-center"></div>
+              <div class="bg-amber-100 text-blue-700 flex items-center justify-center font-extrabold animate-bounce">♕</div>
+              <div class="bg-amber-700 text-amber-100 flex items-center justify-center"></div>
+              <!-- Row 4 -->
+              <div class="bg-amber-700 text-amber-100 flex items-center justify-center"></div>
+              <div class="bg-amber-100 text-slate-900 flex items-center justify-center"></div>
+              <div class="bg-amber-700 text-amber-100 flex items-center justify-center"></div>
+              <div class="bg-amber-100 text-slate-800 flex items-center justify-center">♔</div>
+            </div>
+            <div class="text-xs font-bold text-slate-600 mt-3 flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-blue-600"></span>
+              Sıra Beyazda • Tek hamlede mat!
+            </div>
+          </div>
+
+          <!-- Options -->
+          <div class="space-y-4">
+            <h4 class="font-extrabold text-slate-900 text-lg">Hangi hamleyi yaparsınız?</h4>
+            <p class="text-xs sm:text-sm text-slate-600">
+              Beyaz Vezir (♕) ile rakip Şahı (♚) sıkıştıracak en doğru hamleyi seçin:
+            </p>
+
+            <div class="space-y-2.5" id="puzzle-options">
+              <button onclick="checkMove(false, this)" class="w-full text-left p-3.5 rounded-2xl bg-white border-2 border-slate-200 hover:border-blue-400 text-sm font-bold text-slate-800 transition-all flex items-center justify-between shadow-sm hover:scale-[1.01]">
+                <span>A) Vezir c1 karesine git</span>
+                <i data-lucide="circle" class="w-4 h-4 text-slate-400"></i>
+              </button>
+              <button onclick="checkMove(true, this)" class="w-full text-left p-3.5 rounded-2xl bg-white border-2 border-slate-200 hover:border-blue-400 text-sm font-bold text-slate-800 transition-all flex items-center justify-between shadow-sm hover:scale-[1.01]">
+                <span>B) Vezir g7# (Mat Yap!)</span>
+                <i data-lucide="circle" class="w-4 h-4 text-slate-400"></i>
+              </button>
+              <button onclick="checkMove(false, this)" class="w-full text-left p-3.5 rounded-2xl bg-white border-2 border-slate-200 hover:border-blue-400 text-sm font-bold text-slate-800 transition-all flex items-center justify-between shadow-sm hover:scale-[1.01]">
+                <span>C) Şahı f2 karesine kaç</span>
+                <i data-lucide="circle" class="w-4 h-4 text-slate-400"></i>
+              </button>
+            </div>
+
+            <!-- Puzzle Feedback -->
+            <div id="puzzle-feedback" class="hidden p-4 rounded-2xl text-xs sm:text-sm font-bold"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DERS SAATLERİ VE ETKİNLİKLER ================= -->
+  <section id="etkinlikler" class="scroll-mt-28 py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Schedule -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-black uppercase tracking-wider text-blue-700 px-4 py-1.5 rounded-full bg-blue-100">
+            Ders Saatleri & Atölye Günleri
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900">
+            Haftalık Eğitim ve Atölye Programı
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Eğitimlerimiz öğrencilerimizin okul temposunu aksatmayacak şekilde akşam saatlerinde planlanmıştır. Her öğrenci kendi yaş ve seviye grubuna yerleştirilir.
+          </p>
+
+          <div class="space-y-3.5">
+            <div class="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200 card-shadow hover:scale-[1.01] transition-transform">
+              <div class="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-lg shadow-md shadow-blue-500/20">
+                Salı
+              </div>
+              <div class="flex-1">
+                <div class="text-slate-900 font-extrabold text-base">Hafta İçi 1. Grup</div>
+                <div class="text-xs sm:text-sm text-slate-600 font-medium">18:30 - 20:00 (Satranç Stratejisi & STEM Atölyesi)</div>
+              </div>
+              <span class="text-xs font-black text-emerald-800 bg-emerald-100 px-3 py-1.5 rounded-full">Kayıt Açık</span>
+            </div>
+
+            <div class="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200 card-shadow hover:scale-[1.01] transition-transform">
+              <div class="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-black text-lg shadow-md shadow-indigo-500/20">
+                Cuma
+              </div>
+              <div class="flex-1">
+                <div class="text-slate-900 font-extrabold text-base">Hafta İçi 2. Grup</div>
+                <div class="text-xs sm:text-sm text-slate-600 font-medium">18:30 - 20:00 (Robotik Kodlama & Turnuva Pratiği)</div>
+              </div>
+              <span class="text-xs font-black text-emerald-800 bg-emerald-100 px-3 py-1.5 rounded-full">Kayıt Açık</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Upcoming Events -->
+        <div class="lg:col-span-6 bg-slate-50 rounded-3xl p-8 border border-slate-200 card-shadow">
+          <h3 class="text-2xl font-black font-display text-slate-900 mb-6 flex items-center gap-2.5">
+            <i data-lucide="calendar-check" class="w-6 h-6 text-orange-500"></i> Yaklaşan Kulüp Etkinlikleri
+          </h3>
+
+          <div class="space-y-4">
+            
+            <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-4 hover:border-blue-400 transition-colors">
+              <div class="bg-blue-600 text-white text-center rounded-xl p-2.5 shrink-0 w-14 shadow-sm">
+                <span class="block text-[11px] uppercase font-bold text-blue-100">EKİM</span>
+                <span class="block text-xl font-black">15</span>
+              </div>
+              <div>
+                <h4 class="font-extrabold text-slate-900 text-base">Kulüp İçi Hızlı Satranç Turnuvası</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1">Öğrencilerimizin saatli maç deneyimi kazanacağı eğlenceli iç turnuva.</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-4 hover:border-orange-400 transition-colors">
+              <div class="bg-orange-500 text-white text-center rounded-xl p-2.5 shrink-0 w-14 shadow-sm">
+                <span class="block text-[11px] uppercase font-bold text-orange-100">EKİM</span>
+                <span class="block text-xl font-black">28</span>
+              </div>
+              <div>
+                <h4 class="font-extrabold text-slate-900 text-base">Cumhuriyet Kupası Robotik Proje Sergisi</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1">STEM atölyesinde geliştirilen otonom robotların sergileneceği özel gün.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= HAKKIMIZDA ================= -->
+  <section id="hakkimizda" class="scroll-mt-28 py-20 md:py-28 chess-subtle-bg border-t border-slate-200 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-black uppercase tracking-wider text-blue-700 px-4 py-1.5 rounded-full bg-blue-100">
+            Kulübümüz Hakkında
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900">
+            Geleceğin Şampiyonlarını ve Mühendislerini Yetiştiriyoruz
+          </h2>
+          <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+            <strong>Tekirdağ Robotik Satranç Spor Kulübü (Robochess)</strong>, Türkiye Satranç Federasyonu (TSF) tescilli resmi spor kulübü olarak geleneksel spor disipliniyle çağdaş STEM vizyonunu bir çatı altında birleştiren öncü bir eğitim kurumudur.
+          </p>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Hedefimiz; çocuklarımıza sadece hamle yapmayı değil, her hamlenin ardındaki mantığı, algoritmayı ve nedenselliği öğretmektir. Atölyemizde yetişen sporcularımız satranç tahtasında üstün stratejiler kurarken, robotik kodlama masasında geleceğin teknolojisini inşa ederler.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="p-5 rounded-2xl bg-white border border-blue-100 card-shadow">
+              <div class="font-display font-extrabold text-blue-900 text-lg">Vizyonumuz</div>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">Türkiye'de zeka sporları ve robotik inovasyonu birleştiren öncü kulüp olmak.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-white border border-amber-100 card-shadow">
+              <div class="font-display font-extrabold text-amber-900 text-lg">Misyonumuz</div>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">Her çocuğun analitik potansiyelini butik eğitim ve projelerle açığa çıkarmak.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Feature Cards -->
+        <div class="lg:col-span-6 space-y-4">
+          
+          <div class="p-6 rounded-3xl bg-white border border-slate-200 card-shadow flex items-start gap-4">
+            <span class="text-3xl">🎯</span>
+            <div>
+              <h4 class="font-extrabold text-slate-900 text-base">Bireysel İlgi & Gelişim Raporlaması</h4>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">Her ay velilerimize öğrencinin taktik gelişimi ve robotik proje durumu hakkında detaylı analiz verilir.</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-white border border-slate-200 card-shadow flex items-start gap-4">
+            <span class="text-3xl">🏆</span>
+            <div>
+              <h4 class="font-extrabold text-slate-900 text-base">Turnuva ve Yarışma Deneyimi</h4>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">Kulüp sporcularımız il ve ülke genelindeki resmi satranç turnuvalarına ve robotik yarışmalarına teşvik edilir.</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-white border border-slate-200 card-shadow flex items-start gap-4">
+            <span class="text-3xl">👥</span>
+            <div>
+              <h4 class="font-extrabold text-slate-900 text-base">Yaş Gruplarına Özel Ayrım</h4>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">Öğrencilerimiz yaş ve seviye farkından kaynaklanan zorluklar yaşamaması için akran gruplarıyla eğitim alır.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SIKÇA SORULAN SORULAR (SSS) ================= -->
+  <section class="py-20 bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14 space-y-3">
+        <span class="text-xs font-black uppercase tracking-wider text-blue-700 px-4 py-1.5 rounded-full bg-blue-100">
+          Merak Edilenler
+        </span>
+        <h2 class="text-3xl font-black font-display text-slate-900">Sıkça Sorulan Sorular</h2>
+        <p class="text-slate-600 text-sm">Velilerimizin en sık yönelttiği sorular ve yanıtları</p>
+      </div>
+
+      <div class="space-y-3.5" id="faq-list">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden card-shadow">
+          <button class="w-full p-5 text-left font-extrabold text-sm sm:text-base text-slate-900 flex items-center justify-between gap-4 focus:outline-none" onclick="toggleFaq(this)">
+            <span>Çocuğum satranç ya da kodlama bilmiyor, yine de katılabilir mi?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform duration-200 faq-icon"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 pt-3">
+            Evet, kesinlikle! Eğitimlerimiz sıfırdan başlayanlar için temel seviyeden, turnuva düzeyindeki öğrenciler için ileri seviyeye kadar farklı gruplarda yürütülmektedir.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden card-shadow">
+          <button class="w-full p-5 text-left font-extrabold text-sm sm:text-base text-slate-900 flex items-center justify-between gap-4 focus:outline-none" onclick="toggleFaq(this)">
+            <span>Sınıflar kaç kişilik ve yaş aralığı nedir?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform duration-200 faq-icon"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 pt-3">
+            Sınıflarımız en fazla 10 öğrenciden oluşmaktadır. Öğrenciler 6-9 yaş, 10-13 yaş ve 14+ yaş gibi gelişim düzeyine ve akran grubuna göre ayrılmaktadır.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden card-shadow">
+          <button class="w-full p-5 text-left font-extrabold text-sm sm:text-base text-slate-900 flex items-center justify-between gap-4 focus:outline-none" onclick="toggleFaq(this)">
+            <span>Eğitim süresi ve günleri nasıl planlanıyor?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform duration-200 faq-icon"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 pt-3">
+            Haftada bir gün, günde 2 saat olmak üzere ayda toplam 8 saat eğitim verilir. Derslerimiz Salı ve Cuma günleri 18:30 - 20:00 saatleri arasındadır.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden card-shadow">
+          <button class="w-full p-5 text-left font-extrabold text-sm sm:text-base text-slate-900 flex items-center justify-between gap-4 focus:outline-none" onclick="toggleFaq(this)">
+            <span>Kulüp sporcu lisansı veriliyor mu?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform duration-200 faq-icon"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 pt-3">
+            Evet, Türkiye Satranç Federasyonu (TSF) nezdinde kulübümüz adına sporcu lisansı çıkartılarak sporcularımızın resmi turnuvalara katılımı sağlanmaktadır.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ÖN KAYIT VE BAŞVURU FORMU ================= -->
+  <section id="kayit" class="scroll-mt-28 py-20 md:py-28 chess-subtle-bg relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="bg-gradient-to-br from-blue-50 via-white to-amber-50/50 rounded-3xl p-8 sm:p-14 border-2 border-blue-200 card-shadow relative overflow-hidden">
+        
+        <div class="text-center max-w-xl mx-auto mb-10 space-y-3">
+          <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-black bg-amber-400 text-slate-950 shadow-sm animate-pulse-soft">
+            ⚡ Kontenjanlar 10 Kişiyle Sınırlıdır
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900">
+            Eğitim Ön Talep & Kayıt Formu
+          </h2>
+          <p class="text-slate-600 text-sm">
+            Formu doldurun, antrenörlerimiz ve eğitim koordinatörümüz çocuğunuza en uygun yaş/seviye grubu için sizinle iletişime geçsin.
+          </p>
+        </div>
+
+        <form id="registration-form" onsubmit="handleRegistration(event)" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- Öğrenci Adı Soyadı -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Öğrenci Adı Soyadı *
+              </label>
+              <input type="text" id="student_name" required placeholder="Örn: Ahmet Yılmaz" class="w-full px-4 py-3.5 rounded-2xl bg-white border-2 border-slate-200 focus:border-blue-600 focus:outline-none text-sm text-slate-900 placeholder-slate-400 transition-colors shadow-sm">
+            </div>
+
+            <!-- Öğrencinin Yaşı -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Öğrencinin Yaşı / Doğum Yılı *
+              </label>
+              <input type="text" id="student_age" required placeholder="Örn: 9 Yaşında (2015)" class="w-full px-4 py-3.5 rounded-2xl bg-white border-2 border-slate-200 focus:border-blue-600 focus:outline-none text-sm text-slate-900 placeholder-slate-400 transition-colors shadow-sm">
+            </div>
+
+            <!-- Veli Adı Soyadı -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Veli Adı Soyadı *
+              </label>
+              <input type="text" id="parent_name" required placeholder="Örn: Mehmet Yılmaz" class="w-full px-4 py-3.5 rounded-2xl bg-white border-2 border-slate-200 focus:border-blue-600 focus:outline-none text-sm text-slate-900 placeholder-slate-400 transition-colors shadow-sm">
+            </div>
+
+            <!-- İletişim Telefonu -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                İletişim Numarası (Telefon) *
+              </label>
+              <input type="tel" id="parent_phone" required placeholder="05XX XXX XX XX" class="w-full px-4 py-3.5 rounded-2xl bg-white border-2 border-slate-200 focus:border-blue-600 focus:outline-none text-sm text-slate-900 placeholder-slate-400 transition-colors shadow-sm">
+            </div>
+
+          </div>
+
+          <!-- Tercih Edilen Program & Seviye -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                İlgilenilen Alan
+              </label>
+              <select id="program_choice" class="w-full px-4 py-3.5 rounded-2xl bg-white border-2 border-slate-200 focus:border-blue-600 focus:outline-none text-sm text-slate-900 transition-colors shadow-sm font-medium">
+                <option value="Hibrit (Robotik Satranç & STEM)">Hibrit (Robotik Satranç & STEM Atölyesi)</option>
+                <option value="Yalnızca Satranç Eğitimi">Yalnızca Satranç Eğitimi</option>
+                <option value="Yalnızca Robotik Kodlama">Yalnızca Robotik Kodlama & STEM</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Mevcut Seviye
+              </label>
+              <select id="level_choice" class="w-full px-4 py-3.5 rounded-2xl bg-white border-2 border-slate-200 focus:border-blue-600 focus:outline-none text-sm text-slate-900 transition-colors shadow-sm font-medium">
+                <option value="Sıfırdan Başlangıç">Sıfırdan Başlangıç (Hiç bilmiyor)</option>
+                <option value="Temel Bilgiye Sahip">Temel Bilgiye Sahip (Taş hareketlerini biliyor)</option>
+                <option value="Orta Seviye">Orta Seviye (Oyun oynayabiliyor, pratik istiyor)</option>
+                <option value="İleri / Lisanslı Seviye">İleri Düzey (Turnuvalara katılmış / Lisanslı)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Eklemek İstedikleriniz / Not -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+              Eklemek İstediğiniz Not veya Özel Durum (Opsiyonel)
+            </label>
+            <textarea id="notes" rows="3" placeholder="Grup tercihi (Salı veya Cuma) veya çocuğunuzla ilgili belirtmek istediğiniz bir not..." class="w-full px-4 py-3.5 rounded-2xl bg-white border-2 border-slate-200 focus:border-blue-600 focus:outline-none text-sm text-slate-900 placeholder-slate-400 transition-colors shadow-sm"></textarea>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="pt-3 flex flex-col sm:flex-row gap-4">
+            <button type="submit" class="flex-1 py-4 px-6 rounded-2xl font-black text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-xl shadow-blue-600/30 transition-all duration-300 hover:scale-[1.01] flex items-center justify-center gap-2 text-base">
+              <i data-lucide="send" class="w-5 h-5"></i>
+              Ön Başvuruyu Gönder
+            </button>
+            <button type="button" onclick="sendViaWhatsapp()" class="py-4 px-7 rounded-2xl font-bold text-slate-800 bg-emerald-50 border-2 border-emerald-500 hover:bg-emerald-100 transition-all flex items-center justify-center gap-2 text-base">
+              <i data-lucide="message-circle" class="w-5 h-5 text-emerald-600"></i>
+              WhatsApp ile Hızlı Gönder
+            </button>
+          </div>
+
+        </form>
+
+        <!-- Success Modal / Overlay -->
+        <div id="success-overlay" class="hidden absolute inset-0 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30">
+          <div class="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 shadow-sm">
+            <i data-lucide="check" class="w-10 h-10"></i>
+          </div>
+          <h3 class="text-3xl font-black font-display text-slate-900 mb-2">Ön Kayıt Talebiniz Alındı!</h3>
+          <p class="text-slate-600 text-sm max-w-md mb-6 leading-relaxed">
+            Başvurunuz başarıyla kaydedilmiştir. En kısa sürede belirttiğiniz telefon numarasından sizinle iletişime geçeceğiz.
+          </p>
+          <button onclick="document.getElementById('success-overlay').classList.add('hidden')" class="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold shadow-md">
+            Tamam
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= İLETİŞİM & KONUM ================= -->
+  <section id="iletisim" class="scroll-mt-28 py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-black uppercase tracking-wider text-blue-700 px-4 py-1.5 rounded-full bg-blue-100">
+          Bize Ulaşın
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900">İletişim ve Atölye Adresimiz</h2>
+        <p class="text-slate-600 text-sm">Sorularınız, kayıt detayları ve atölye ziyareti için bizimle iletişime geçebilirsiniz.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Telefon -->
+        <div class="bg-slate-50 rounded-3xl p-8 text-center space-y-4 border border-slate-200 card-shadow hover:scale-105 transition-transform">
+          <div class="w-16 h-16 rounded-2xl bg-blue-100 text-blue-600 mx-auto flex items-center justify-center">
+            <i data-lucide="phone-call" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-extrabold text-slate-900 text-lg">Telefon / WhatsApp</h3>
+          <p class="text-slate-500 text-xs">Doğrudan arayabilir veya mesaj yazabilirsiniz.</p>
+          <a href="tel:05417159566" class="text-blue-600 hover:text-blue-700 font-black text-xl block">
+            0 541 715 95 66
+          </a>
+        </div>
+
+        <!-- E-posta -->
+        <div class="bg-slate-50 rounded-3xl p-8 text-center space-y-4 border border-slate-200 card-shadow hover:scale-105 transition-transform">
+          <div class="w-16 h-16 rounded-2xl bg-indigo-100 text-indigo-600 mx-auto flex items-center justify-center">
+            <i data-lucide="mail" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-extrabold text-slate-900 text-lg">E-Posta</h3>
+          <p class="text-slate-500 text-xs">Resmi ve kurumsal yazışmalarınız için.</p>
+          <a href="mailto:robo_chess@robochess.org" class="text-blue-600 hover:text-blue-700 font-bold text-base block truncate">
+            robo_chess@robochess.org
+          </a>
+        </div>
+
+        <!-- Adres -->
+        <div class="bg-slate-50 rounded-3xl p-8 text-center space-y-4 border border-slate-200 card-shadow hover:scale-105 transition-transform">
+          <div class="w-16 h-16 rounded-2xl bg-amber-100 text-amber-600 mx-auto flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-extrabold text-slate-900 text-lg">Atölye Adresi</h3>
+          <p class="text-slate-800 text-sm font-semibold">
+            Hürriyet Mahallesi, Tepebaşı Caddesi <br>
+            <span class="text-blue-600 font-extrabold">Süleymanpaşa / Tekirdağ STEM Atölyesi</span>
+          </p>
+          <div class="text-xs text-slate-500 font-bold">Salı - Cuma: 18:30 - 20:00</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= LIGHTBOX FOTOĞRAF POPUP MODAL ================= -->
+  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl">
+      <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-slate-900 text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110">
+        ✕
+      </button>
+      <img id="lightbox-img" src="" alt="Galeri Büyük Fotoğraf" class="w-full max-h-[75vh] object-contain bg-slate-950">
+      <div class="p-4 bg-white border-t border-slate-100 flex items-center justify-between">
+        <span id="lightbox-caption" class="font-bold text-slate-800 text-sm sm:text-base"></span>
+        <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Robochess Kulüp Galerisi</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-white border-t border-slate-200 py-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-200">
+        
+        <!-- Brand with Official Logos -->
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+          <img src="robochess-logo.png" alt="Tekirdağ Robotik Satranç Spor Kulübü" class="h-11 sm:h-13 w-auto object-contain">
+          <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+          <div class="flex items-center gap-2.5 bg-slate-50 border border-slate-200/90 px-3 py-1.5 rounded-xl shadow-xs">
+            <img src="tsf-logo.png" alt="Türkiye Satranç Federasyonu" class="w-8 h-8 object-contain">
+            <div class="text-left">
+              <div class="text-[10px] font-black text-slate-800 uppercase tracking-tight">TSF Tescilli Kulüp</div>
+              <div class="text-[9px] text-slate-500 font-semibold">Türkiye Satranç Federasyonu</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="flex items-center gap-6 text-xs sm:text-sm font-bold text-slate-600 flex-wrap justify-center">
+          <a href="#egitimler" class="hover:text-blue-600 transition-colors">Eğitimler</a>
+          <a href="#galeri" class="hover:text-blue-600 transition-colors">Galeri</a>
+          <a href="#neden-biz" class="hover:text-blue-600 transition-colors">Neden Biz?</a>
+          <a href="#etkinlikler" class="hover:text-blue-600 transition-colors">Etkinlikler</a>
+          <a href="#hakkimizda" class="hover:text-blue-600 transition-colors">Hakkımızda</a>
+          <a href="#iletisim" class="hover:text-blue-600 transition-colors">İletişim</a>
+          <a href="#kayit" class="text-blue-600 font-extrabold hover:underline">Ön Kayıt</a>
+        </div>
+
+        <!-- Direct Social / Contact icons -->
+        <div class="flex items-center gap-3">
+          <a href="https://wa.me/905417159566" target="_blank" class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 hover:bg-emerald-100 transition-colors" title="WhatsApp">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+          </a>
+          <a href="tel:05417159566" class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 hover:bg-blue-100 transition-colors" title="Ara">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+          </a>
+          <a href="mailto:robo_chess@robochess.org" class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-slate-200 transition-colors" title="E-Posta">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div>© 2026 Tekirdağ Robotik Satranç Spor Kulübü (www.robochess.org). Tüm hakları saklıdır.</div>
+        <div class="flex items-center gap-4 font-semibold text-slate-600">
+          <span>Tekirdağ / Süleymanpaşa — Hürriyet Mah. Tepebaşı Cad. STEM Atölyesi</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+  <a href="https://wa.me/905417159566?text=Merhaba,%20Tekirdağ%20Robotik%20Satranç%20Spor%20Kulübü%20eğitimleri%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm shadow-2xl shadow-emerald-600/40 hover:scale-110 transition-all duration-300 group" title="WhatsApp ile Bilgi Alın">
+    <i data-lucide="message-circle" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+    <span class="hidden sm:inline">WhatsApp Bilgi Hattı</span>
+  </a>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on clicking a link
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Lightbox Modal Functions
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').innerText = caption;
+      document.getElementById('lightbox-modal').classList.remove('hidden');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').classList.add('hidden');
+    }
+
+    // Interactive Chess Puzzle
+    function checkMove(isCorrect, button) {
+      const feedback = document.getElementById('puzzle-feedback');
+      const allButtons = document.querySelectorAll('#puzzle-options button');
+      
+      allButtons.forEach(btn => {
+        btn.classList.remove('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'border-rose-500', 'bg-rose-50', 'text-rose-900');
+      });
+
+      feedback.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-900', 'border-emerald-300', 'bg-rose-100', 'text-rose-900', 'border-rose-300');
+
+      if (isCorrect) {
+        button.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+        feedback.classList.add('bg-emerald-100', 'text-emerald-900', 'border-2', 'border-emerald-400');
+        feedback.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">🎉</span>
+            <div>
+              <strong>Tebrikler! Doğru Hamle!</strong> Vezir g7 karesine gelerek rakip Şahı mat eder. İşte analitik düşüncenin ve satrancın gücü!
+            </div>
+          </div>
+        `;
+      } else {
+        button.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+        feedback.classList.add('bg-rose-100', 'text-rose-900', 'border-2', 'border-rose-400');
+        feedback.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">❌</span>
+            <div>
+              <strong>Yanlış Hamle!</strong> Bu hamle doğrudan mat ile sonuçlanmaz. Tekrar deneyin veya Vezir'in tehdit hatlarını inceleyin!
+            </div>
+          </div>
+        `;
+      }
+      lucide.createIcons();
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+      const isHidden = content.classList.contains('hidden');
+
+      // Close all first
+      document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    // Form submission handler
+    function handleRegistration(event) {
+      event.preventDefault();
+      
+      // Show success modal
+      document.getElementById('success-overlay').classList.remove('hidden');
+
+      // Reset form
+      document.getElementById('registration-form').reset();
+      lucide.createIcons();
+    }
+
+    // Direct WhatsApp message from form data
+    function sendViaWhatsapp() {
+      const sName = document.getElementById('student_name').value.trim() || 'Belirtilmedi';
+      const sAge = document.getElementById('student_age').value.trim() || 'Belirtilmedi';
+      const pName = document.getElementById('parent_name').value.trim() || 'Belirtilmedi';
+      const pPhone = document.getElementById('parent_phone').value.trim() || 'Belirtilmedi';
+      const prog = document.getElementById('program_choice').value;
+      const lvl = document.getElementById('level_choice').value;
+      const notes = document.getElementById('notes').value.trim();
+
+      const message = `*ROBOTİK SATRANÇ SPOR KULÜBÜ ÖN KAYIT BAŞVURUSU*%0A` +
+        `--------------------------------%0A` +
+        `*Öğrenci:* ${encodeURIComponent(sName)}%0A` +
+        `*Yaş:* ${encodeURIComponent(sAge)}%0A` +
+        `*Veli:* ${encodeURIComponent(pName)}%0A` +
+        `*Telefon:* ${encodeURIComponent(pPhone)}%0A` +
+        `*Program:* ${encodeURIComponent(prog)}%0A` +
+        `*Seviye:* ${encodeURIComponent(lvl)}%0A` +
+        (notes ? `*Not:* ${encodeURIComponent(notes)}%0A` : '') +
+        `--------------------------------%0A` +
+        `Web siteniz (robochess.org) üzerinden gönderildi.`;
+
+      window.open(`https://wa.me/905417159566?text=${message}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
